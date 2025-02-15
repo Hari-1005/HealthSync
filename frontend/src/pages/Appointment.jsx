@@ -69,9 +69,6 @@ const Appointment = () => {
     getAvailableSlots();
   }, [docInfo]);
 
-  useEffect(() => {
-    console.log(docSlots);
-  }, [docSlots]);
 
   return (
     docInfo && (
@@ -134,6 +131,15 @@ const Appointment = () => {
             ))
           }
           </div>
+
+          <div className="mt-4 flex gap-3 items-center text-sm font-normal overflow-x-scroll">
+            {
+              docSlots.length && docSlots[slotIndex].map((item,index)=>(
+                <p onClick={()=>setSlotTime(item.time)} className={`py-2 px-5 flex-shrink-0 rounded-full text-center cursor-pointer ${item.time === slotTime ? "bg-primary text-white" : "text-gray-500 border border-gray-400"}`} key={index}>{item.time.toLowerCase()}</p>
+              ))
+            }
+          </div>
+          <button className="bg-primary text-sm font-light text-white my-6 py-3 px-20 rounded-full">Book an appointment</button>
         </div>
       </div>
     )

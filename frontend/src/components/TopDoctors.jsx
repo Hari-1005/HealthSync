@@ -17,7 +17,7 @@ const TopDoctors = () => {
           <div
             onClick={() => {navigate(`/appointment/${item._id}`); scrollTo(0,0)}}
             key={index}
-            className="border border-blue-200 rounded-xl w-96 md:w-56 hover:translate-y-[-10px] transition-all duration-500 cursor-pointer"
+            className="border border-blue-200 rounded-xl w-40 md:w-56 hover:translate-y-[-10px] transition-all duration-500 cursor-pointer"
           >
             <img
               src={item.image}
@@ -25,12 +25,12 @@ const TopDoctors = () => {
               alt="doctor image"
             />
             <div className="p-4 flex-grow-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-xs sm:text-base">
                 <p className="h-2 w-2 rounded-full bg-green-500"></p>
                 <p className="text-green-500">Available</p>
               </div>
-              <p className="text-lg text-gray-900 font-medium">{item.name}</p>
-              <p className="text-sm text-gray-500">{item.speciality}</p>
+              <p className="text-sm sm:text-lg text-gray-900 font-medium">{item.name}</p>
+              <p className="text-xs sm:text-sm text-gray-500">{item.speciality}</p>
             </div>
           </div>
         ))}

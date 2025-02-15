@@ -53,7 +53,7 @@ const Doctors = () => {
                   ? navigate("/doctors")
                   : navigate(`/doctors/${doc.speciality}`)
               }
-              className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 text-nowrap border border-gray-300 rounded transition-all cursor-pointer hidden sm:flex hover:bg-indigo-100 ${
+              className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 text-nowrap border border-gray-300 rounded cursor-pointer hidden sm:flex ${
                 speciality === doc.speciality ? "bg-indigo-200 text-black" : ""
               }`}
             >
@@ -62,12 +62,12 @@ const Doctors = () => {
           ))}
         </div>
 
-        <div className="w-full grid grid-cols-auto gap-4 gap-y-6">
+        <div className="w-full flex flex-wrap sm:grid sm:grid-cols-auto gap-4 gap-y-6">
           {filterDoc.map((item, index) => (
             <div
               onClick={() => {navigate(`/appointment/${item._id}`); scrollTo(0,0)}}
               key={index}
-              className="border border-blue-200 rounded-xl w-96 md:w-56 hover:translate-y-[-10px] transition-all duration-500 cursor-pointer"
+              className="border mx-auto border-blue-200 rounded-xl w-40 sm:w-96 md:w-56 hover:translate-y-[-10px] transition-all duration-500 cursor-pointer"
             >
               <img
                 src={item.image}
@@ -75,12 +75,12 @@ const Doctors = () => {
                 alt="doctor image"
               />
               <div className="p-4 flex-grow-0">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-xs sm:text-base">
                   <p className="h-2 w-2 rounded-full bg-green-500"></p>
                   <p className="text-green-500">Available</p>
                 </div>
-                <p className="text-lg text-gray-900 font-medium">{item.name}</p>
-                <p className="text-sm text-gray-500">{item.speciality}</p>
+                <p className="text-sm sm:text-lg text-gray-900 font-medium">{item.name}</p>
+                <p className="text-xs sm:text-sm text-gray-500">{item.speciality}</p>
               </div>
             </div>
           ))}
