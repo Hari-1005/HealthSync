@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
+import RelatedDoctors from "../components/RelatedDoctors";
 
 const Appointment = () => {
   const { docId } = useParams();
@@ -69,6 +70,9 @@ const Appointment = () => {
     getAvailableSlots();
   }, [docInfo]);
 
+  useEffect(()=>{
+    console.log(docSlots)
+  },[docSlots])
 
   return (
     docInfo && (
@@ -119,11 +123,11 @@ const Appointment = () => {
         </div>
 
         {/* --------Booking Slots--------- */}
-        <div className="sm:ml-72 sm:pl-5 mt-8 font-medium text-gray-600">
-          <p>Booking slots</p>
+        <div className="sm:ml-72 sm:pl-5 mt-14 sm:mt-8 font-medium text-center sm:text-start text-gray-600">
+          <p className="text-lg sm:text-base">Booking slots</p>
           <div className="flex items-center gap-3 mt-4 w-full overflow-x-auto">
           {
-            docSlots.length && docSlots.map((item,index)=>(
+            docSlots.length && docSlots.map((item,index)=> item[0]&&(
               <div onClick={()=>setSlotIndex(index)} className={`py-6 min-w-16 text-center rounded-full cursor-pointer ${slotIndex === index ? 'bg-primary text-white' : 'border border-gray-300'}`} key={index}>
                 <p>{item[0] && daysOfWeek[item[0].dateTime.getDay()]}</p>
                 <p>{item[0] && item[0].dateTime.getDate()}</p>
@@ -141,6 +145,7 @@ const Appointment = () => {
           </div>
           <button className="bg-primary text-sm font-light text-white my-6 py-3 px-20 rounded-full">Book an appointment</button>
         </div>
+        <RelatedDoctors docId={docId} speciality={docInfo.speciality}/>
       </div>
     )
   );
