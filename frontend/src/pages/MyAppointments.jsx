@@ -9,7 +9,7 @@ const MyAppointments = () => {
       <p className="text-lg font-medium text-gray-600">My Appointments</p>
       <hr className="my-3" />
       <div className="flex flex-col gap-3">
-        {doctors.slice(0, 2).map((item, index) => (
+        {doctors.slice(0, 10).map((item, index) => (
           <div
             className="flex flex-col sm:flex-row gap-3 justify-between border-b pb-4 mb-4 sm:mb-0"
             key={index}
