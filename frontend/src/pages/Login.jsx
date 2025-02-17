@@ -1,8 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = () => {
+  const [state, setState] = useState('Sign Up');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmitHandler = async(event) => {
+    event.preventDefault()
+  }
   return (
-    <div>Login</div>
+    <form className='h-[80vh] flex items-center' onSubmit={onSubmitHandler}>
+      <div className='flex flex-col gap-3 border items-start border-zinc-300 min-w-96 m-auto rounded-xl p-8 text-sm text-gray-600 shadow-lg'>
+        <p className='text-2xl font-semibold'>{state === 'Sign Up' ? 'Create Account' : 'Login'}</p>
+        <p>Please {state === 'Sign Up' ? 'sign up' : 'login'} to book appointment</p>
+          {state === 'Sign Up' && <div className='w-full'>
+            <p>Full Name</p>
+            <input className='border border-zinc-300 w-full p-2 mt-1 rounded' value={name} onChange={(e)=>setName(e.target.value)} type="text" required/>
+          </div>}
+          <div className='w-full'>
+            <p>Email</p>
+            <input className='border border-zinc-300 w-full p-2 mt-1 rounded-md' value={email} onChange={(e)=>setEmail(e.target.value)} type="email" required/>
+          </div>
+          <div className='w-full'>
+            <p>Password</p>
+            <input className='border border-zinc-300 w-full p-2 mt-1 rounded-md' value={password} onChange={(e)=>setPassword(e.target.value)} type="password" required/>
+          </div>
+          <button className='bg-primary rounded-md w-full text-white py-2 my-2 text-base'>{state === 'Sign Up' ? 'Create Account' : 'Login'}</button>
+          {
+            state === 'Sign Up'
+            ? <p>Already have an account? <span onClick={()=>setState('Login')} className='text-primary underline cursor-pointer'>Login here</span></p>
+            : <p>Create an new account? <span onClick={()=>setState('Sign Up')} className='text-primary underline cursor-pointer'>Click here</span></p>
+          }
+      </div>
+    </form>
   )
 }
 
