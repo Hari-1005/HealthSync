@@ -7,7 +7,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const onSubmitHandler = async(event) => {
-    event.preventDefault()
+    event.preventDefault();
+    console.log(name,email,password);
+    setName("");
+    setEmail("");
+    setPassword("");
   }
   return (
     <form className='h-[80vh] flex items-center' onSubmit={onSubmitHandler}>
