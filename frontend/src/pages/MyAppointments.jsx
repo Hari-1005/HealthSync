@@ -9,14 +9,14 @@ const MyAppointments = () => {
       <p className="text-lg font-medium text-gray-600">My Appointments</p>
       <hr className="my-3" />
       <div className="flex flex-col gap-3">
-        {doctors.slice(0, 10).map((item, index) => (
+        {doctors.slice(0, 3).map((item, index) => (
           <div
             className="flex flex-col sm:flex-row gap-3 justify-between border-b pb-4 mb-4 sm:mb-0"
             key={index}
           >
             <div className="flex gap-4 text-xs sm:text-sm text-gray-500">
               <img
-                className="max-w-36 bg-indigo-100 rounded"
+                className="w-36 h-36 sm:h-full bg-indigo-200 rounded"
                 src={item.image}
                 alt=""
               />

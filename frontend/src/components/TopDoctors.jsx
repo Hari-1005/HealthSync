@@ -21,8 +21,8 @@ const TopDoctors = () => {
           >
             <img
               src={item.image}
-              className="bg-blue-50 rounded-t-xl"
-              alt="doctor image"
+              className="bg-blue-50 rounded-t-xl h-40 sm:h-96 md:h-56"
+              alt=""
             />
             <div className="p-4 flex-grow-0">
               <div className="flex items-center gap-2 text-xs sm:text-base">
