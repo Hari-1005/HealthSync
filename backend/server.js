@@ -18,7 +18,7 @@ app.use(cors())
 app.use('/api/admin', adminRouter)
 //api endpoints
 app.get("/", (req, res) => {
-  res.send("API WORKING");
+  res.json({msg:"API WORKING"});
 });
 
 app.listen(port, () => console.log(`server is running on ${port}`));
