@@ -25,6 +25,9 @@ const Login = () => {
     } catch (error) {
         console.log(error)
     }
+
+    setEmail("")
+    setPassword("")
   }
 
   return (
@@ -38,6 +41,7 @@ const Login = () => {
           <p>Email</p>
           <input
           onChange={(e)=> setEmail(e.target.value)}
+          value={email}
             className="border border-gray-300 w-full rounded p-2 mt-1"
             type="text"
             required
@@ -48,6 +52,7 @@ const Login = () => {
           <p>Password</p>
           <input
           onChange={(e)=> setPassword(e.target.value)}
+          value={password}
             className="border border-gray-300 w-full rounded p-2 mt-1"
             type="password"
             required
