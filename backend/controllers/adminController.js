@@ -31,7 +31,6 @@ export const addDoctor = async (req, res) => {
       !degree ||
       !experience ||
       !about ||
-      !available ||
       !fees ||
       !address
     ) {

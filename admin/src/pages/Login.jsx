@@ -23,7 +23,8 @@ const Login = () => {
             }
         }
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        toast.error(error.message)
     }
 
     setEmail("")
@@ -34,7 +35,7 @@ const Login = () => {
     <form onSubmit={handleSubmit} className="border border-gray-200 max-w-96 m-auto p-8 rounded-lg shadow-md text-sm mt-20 text-gray-600">
       <div className="flex flex-col gap-3">
         <p className="text-center text-2xl font-semibold text-gray-500">
-          <span className="text-indigo-500">{state} </span>Login
+          <span className="text-primary">{state} </span>Login
         </p>
 
         <div className="text-gray-600">
@@ -59,7 +60,7 @@ const Login = () => {
           />
         </div>
 
-        <button className="bg-indigo-500 py-2 rounded text-white my-2 cursor-pointer">
+        <button className="bg-primary py-2 rounded text-white my-2 cursor-pointer">
           Login
         </button>
 
@@ -68,7 +69,7 @@ const Login = () => {
             Doctor Login?{" "}
             <span
               onClick={() => setState("Doctor")}
-              className="text-indigo-500 underline cursor-pointer"
+              className="text-primary underline cursor-pointer"
             >
               Click here
             </span>
@@ -78,7 +79,7 @@ const Login = () => {
             Admin Login?{" "}
             <span
               onClick={() => setState("Admin")}
-              className="text-indigo-500 underline cursor-pointer"
+              className="text-primary underline cursor-pointer"
             >
               Click here
             </span>

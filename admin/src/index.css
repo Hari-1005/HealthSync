@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
-*{
-    font-family:"Outfit"
+@theme {
+    --font-primary: "Outfit", "sans-serif";
+    --color-primary : #5f6fff;
+  }
+
+  ::-webkit-scrollbar{
+    @apply hidden
 }
+
+/* .sidebar .active{
+  background-color : #F2F3FF;
+  border-right : 4px solid #5f6fff;
+} */
