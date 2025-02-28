@@ -8,7 +8,21 @@ export const changeAvailability = async (req, res) => {
     }
     const docData = await doctorModel.findById(docId);
     await docData.updateOne({ available: !docData.available });
-    res.json({ success: true, message: `${docData.name} Availability changed` });
+    res.json({
+      success: true,
+      message: `${docData.name} Availability changed`,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+//--getallDoctors---//
+export const allDoctors = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({}).select(["-password", "-email"]);
+    res.json({ success: true, doctors });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });

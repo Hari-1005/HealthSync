@@ -11,11 +11,17 @@ const AdminContextProvider = (props) => {
   const [doctors, setDoctors] = useState([]);
 
   const getAllDoctors = async () => {
-    const { data } = await axios.get(backendUrl + "/api/admin/all-doctors", {
-      headers: { aToken },
-    });
-    if (!data.success) return toast.error("failed to fetch doctors");
-    setDoctors(data.doctors);
+    try {
+      const { data } = await axios.get(backendUrl + "/api/admin/all-doctors", {
+        headers: { aToken },
+      });
+      if (!data.success) return toast.error("failed to fetch doctors");
+      setDoctors(data.doctors);
+    } catch (error) {
+      console.log(error);
+      toast.error("failed to fetch doctors")
+    }
+
   };
 
   const changeAvailability = async(docId) => {
@@ -56,3 +62,4 @@ const AdminContextProvider = (props) => {
 };
 
 export default AdminContextProvider;
+
