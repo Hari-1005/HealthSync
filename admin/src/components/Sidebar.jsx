@@ -9,22 +9,22 @@ const Sidebar = () => {
     <div className='min-h-screen bg-white border-r border-gray-200'>
       { aToken && <ul className='text-[#515151] mt-5 sidebar'>
 
-        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/admin-dashboard'}>
+        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/admin-dashboard'} title='Dashboard'>
           <img className='min-w-5' src={assets.home_icon} alt="" />
           <p className='hidden md:block'>Dashboard</p>
         </NavLink>
 
-        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/all-appointments'}>
+        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/all-appointments'} title='Appointments'>
           <img className='min-w-5' src={assets.appointment_icon} alt="" />
           <p className='hidden md:block'>Appointments</p>
         </NavLink>
 
-        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/add-doctor'}>
+        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/add-doctor'} title='Add Doctor'>
           <img className='min-w-5' src={assets.add_icon} alt="" />
           <p className='hidden md:block'>Add Doctor</p>
         </NavLink>
 
-        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/doctors-list'}>
+        <NavLink className={({isActive})=> `flex items-center gap-3 px-3 py-3.5 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'border-primary border-r-4 bg-[#F2F3FF]' : ''}`} to={'/doctors-list'} title='Doctors List'>
           <img className='min-w-5' src={assets.people_icon} alt="" />
           <p className='hidden md:block'>Doctors List</p>
         </NavLink>

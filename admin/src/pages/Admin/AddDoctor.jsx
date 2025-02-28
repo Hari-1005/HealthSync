@@ -46,11 +46,11 @@ const AddDoctor = () => {
       formData.append("email", email);
       formData.append("password", password);
       formData.append("experience", experience);
-      formData.append("fees", fees);
+      formData.append("fees", Number(fees));
       formData.append("speciality", speciality);
       formData.append("degree", degree);
       formData.append("about", about);
-      formData.append("address", JSON.stringify({ address1, address2 }));
+      formData.append("address", JSON.stringify({ line1:address1, line2:address2 }));
 
       // send data to backend
       const { data } = await axios.post(
@@ -67,7 +67,7 @@ const AddDoctor = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Failed to add doctor");
+      toast.error("Failed to add doctor");      
     }
   };
 
@@ -228,7 +228,7 @@ const AddDoctor = () => {
           ></textarea>
         </div>
         <button
-          className="mt-6 px-6 py-2 bg-primary rounded-full text-white"
+          className="mt-6 px-6 py-2 bg-primary rounded-full text-white cursor-pointer"
           type="submit"
         >
           Add Doctor
