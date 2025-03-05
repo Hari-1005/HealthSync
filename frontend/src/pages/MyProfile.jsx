@@ -20,7 +20,15 @@ const Myprofile = () => {
   return (
     <div className="flex flex-col max-w-lg gap-3 text-sm p-2">
       <div>
-        <img className="w-32" src={userData.image} alt="profile-image" />
+        <label htmlFor="profile-img" className="relative">
+          <img
+            className={`w-32 cursor-pointer rounded-full border-2 border-gray-200 p-1`}
+            src={userData.image}
+            alt="profile-image"
+          />
+          {isEdit && <i class="fa-solid fa-pen text-indigo-400 absolute left-28 bottom-0.5 text-lg"></i>}
+        </label>
+        {isEdit && <input id="profile-img" type="file" className="hidden" />}
       </div>
 
       <div className="flex flex-col gap-2 text-gray-700">
@@ -45,9 +53,10 @@ const Myprofile = () => {
             <p>Phone :</p>
             {isEdit ? (
               <input
-                className="bg-gray-200 p-1 max-w-52"
+                className="bg-gray-200 p-1 max-w-52 outline-none"
                 type="text"
                 value={userData.phone}
+                placeholder="enter your number"
                 onChange={(e) =>
                   setUserData((prev) => ({ ...prev, phone: e.target.value }))
                 }
@@ -59,8 +68,9 @@ const Myprofile = () => {
             {isEdit ? (
               <p>
                 <input
-                  className="bg-gray-200 pr-2"
+                  className="bg-gray-200 p-1 mb-0.5 outline-none"
                   type="text"
+                  placeholder="address line 1"
                   value={userData?.address?.line1}
                   onChange={(e) =>
                     setUserData((prev) => ({
@@ -71,9 +81,10 @@ const Myprofile = () => {
                 />
                 <br />
                 <input
-                  className="bg-gray-200 pr-2"
+                  className="bg-gray-200 p-1 outline-none"
                   type="text"
                   value={userData?.address?.line2}
+                  placeholder="address line 2"
                   onChange={(e) =>
                     setUserData((prev) => ({
                       ...prev,
