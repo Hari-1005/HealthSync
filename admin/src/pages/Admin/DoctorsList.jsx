@@ -21,7 +21,7 @@ const DoctorsList = () => {
           >
             <img
               src={item.image}
-              className="bg-blue-50 group-hover:bg-indigo-400 h-40"
+              className="bg-blue-50 group-hover:bg-indigo-400 h-40 transition-all duration-500"
               alt=""
             />
             <div className="p-4 flex-grow-0">
